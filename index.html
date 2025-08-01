@@ -1,0 +1,1941 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Suraj Salihu | Full-Stack Developer | Graphics Designer</title>
+    <style>
+        /* Base Styles */
+        :root {
+            --primary-light: #3b82f6;
+            --primary-dark: #2563eb;
+            --text-light: #1f2937;
+            --text-dark: #f3f4f6;
+            --bg-light: #f9fafb;
+            --bg-dark: #111827;
+            --card-light: #ffffff;
+            --card-dark: #1f2937;
+            --border-light: #e5e7eb;
+            --border-dark: #374151;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            -webkit-text-size-adjust: 100%;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-light);
+            color: var(--text-light);
+            transition: background-color 0.3s, color 0.3s;
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        body.dark {
+            background-color: var(--bg-dark);
+            color: var(--text-dark);
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            width: 100%;
+            top: 0;
+            background-color: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            z-index: 100;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        body.dark nav {
+            background-color: rgba(31, 41, 55, 0.8);
+        }
+
+        .nav-container {
+            max-width: 100%;
+            padding: 0 20px;
+            height: 64px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--text-light);
+            text-decoration: none;
+        }
+
+        body.dark .logo {
+            color: var(--text-dark);
+        }
+
+        .nav-links {
+            display: none;
+        }
+
+        @media (min-width: 768px) {
+            .nav-links {
+                display: flex;
+                gap: 1.5rem;
+            }
+        }
+
+        .nav-link {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s;
+            font-size: 0.95rem;
+        }
+
+        body.dark .nav-link {
+            color: var(--text-dark);
+        }
+
+        .nav-link:hover {
+            color: var(--primary-light);
+        }
+
+        .mobile-menu-button {
+            display: block;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--text-light);
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+
+        body.dark .mobile-menu-button {
+            color: var(--text-dark);
+        }
+
+        @media (min-width: 768px) {
+            .mobile-menu-button {
+                display: none;
+            }
+        }
+
+        .mobile-menu {
+            display: none;
+            padding: 1rem;
+            background-color: var(--card-light);
+            border-top: 1px solid var(--border-light);
+        }
+
+        body.dark .mobile-menu {
+            background-color: var(--card-dark);
+            border-top: 1px solid var(--border-dark);
+        }
+
+        .mobile-menu.active {
+            display: block;
+        }
+
+        .mobile-menu-links {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .mobile-menu-links .nav-link {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        body.dark .mobile-menu-links .nav-link {
+            border-bottom-color: var(--border-dark);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 64px 20px 20px;
+            background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('images/cover01.png');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: white;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            padding: 0 1rem;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        @media (min-width: 768px) {
+            .hero h1 {
+                font-size: 3.5rem;
+            }
+        }
+
+        .hero h2 {
+            font-size: 1.25rem;
+            font-weight: 400;
+            margin-bottom: 2rem;
+        }
+
+        @media (min-width: 768px) {
+            .hero h2 {
+                font-size: 1.5rem;
+            }
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-block;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 0.5rem;
+            font-weight: 500;
+            transition: all 0.2s;
+            white-space: nowrap;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-light);
+            color: white;
+            padding: 0.75rem 1.5rem;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-dark);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: white;
+            border: 2px solid white;
+            padding: 0.75rem 1.5rem;
+        }
+
+        .btn-secondary:hover {
+            background-color: white;
+            color: var(--text-light);
+        }
+
+        /* Sections */
+        section {
+            padding: 4rem 1rem;
+            width: 100%;
+        }
+
+        @media (min-width: 768px) {
+            section {
+                padding: 5rem 1.5rem;
+            }
+        }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: 800;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        @media (min-width: 768px) {
+            .section-title {
+                font-size: 2.25rem;
+                margin-bottom: 3rem;
+            }
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            width: 100%;
+            padding: 0 1rem;
+        }
+
+        @media (min-width: 768px) {
+            .container {
+                padding: 0 1.5rem;
+            }
+        }
+
+        /* About Section */
+        .about-content {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        @media (min-width: 768px) {
+            .about-content {
+                flex-direction: row;
+                align-items: center;
+                gap: 3rem;
+            }
+        }
+
+        .profile-img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background-image: url('images/Sooraj.jpg');
+            background-size: cover;
+            background-position: center;
+            margin: 0 auto;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+
+        @media (min-width: 768px) {
+            .profile-img {
+                width: 250px;
+                height: 250px;
+            }
+        }
+
+        .about-text {
+            flex: 1;
+        }
+
+        .about-text p {
+            font-size: 1rem;
+            line-height: 1.75;
+            margin-bottom: 1.5rem;
+        }
+
+        @media (min-width: 768px) {
+            .about-text p {
+                font-size: 1.125rem;
+            }
+        }
+
+        .badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            justify-content: center;
+        }
+
+        @media (min-width: 768px) {
+            .badges {
+                justify-content: flex-start;
+            }
+        }
+
+        .badge {
+            background-color: #dbeafe;
+            color: #1e40af;
+            padding: 0.5rem 1rem;
+            border-radius: 0.5rem;
+            font-weight: 500;
+            font-size: 0.875rem;
+        }
+
+        .backend-badge {
+            background-color: #dcfce7;
+            color: #166534;
+        }
+        
+        body.dark .backend-badge {
+            background-color: #14532d;
+            color: #bbf7d0;
+        }
+
+        .database-icon {
+            color: #0369a1;
+        }
+
+        .server-icon {
+            color: #7c3aed;
+        }
+
+        body.dark .badge {
+            background-color: #1e3a8a;
+            color: #bfdbfe;
+        }
+
+        /* Skills Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+        }
+
+        @media (min-width: 480px) {
+            .skills-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (min-width: 768px) {
+            .skills-grid {
+                grid-template-columns: repeat(4, 1fr);
+                gap: 1.5rem;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .skills-grid {
+                grid-template-columns: repeat(6, 1fr);
+            }
+        }
+
+        .skill-card {
+            background-color: var(--card-light);
+            border-radius: 0.5rem;
+            padding: 1.25rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.75rem;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        body.dark .skill-card {
+            background-color: var(--card-dark);
+        }
+
+        .skill-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+
+        .skill-icon {
+            font-size: 2rem;
+        }
+
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            gap: 1.5rem;
+        }
+        
+        @media (min-width: 640px) {
+            .projects-grid {
+                grid-template-columns: repeat(1, 1fr);
+            }
+        }
+
+        @media (min-width: 768px) {
+            .projects-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .projects-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .project-card {
+            background-color: var(--card-light);
+            border-radius: 0.75rem;
+            overflow: hidden;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s, box-shadow 0.2s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        body.dark .project-card {
+            background-color: var(--card-dark);
+        }
+
+        .project-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+
+        .project-image {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+        }
+
+        @media (min-width: 768px) {
+            .project-image {
+                height: 200px;
+            }
+        }
+
+        .project-content {
+            padding: 1.25rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+        }
+
+        .project-description {
+            color: #6b7280;
+            margin-bottom: 1rem;
+            line-height: 1.5;
+            flex: 1;
+        }
+
+        body.dark .project-description {
+            color: #9ca3af;
+        }
+
+        .project-tech {
+            font-size: 0.875rem;
+            color: #6b7280;
+            margin-bottom: 0.5rem;
+        }
+
+        .backend-details {
+            font-size: 0.875rem;
+            color: #6b7280;
+            margin-bottom: 1rem;
+            line-height: 1.5;
+        }
+
+        body.dark .project-tech,
+        body.dark .backend-details {
+            color: #9ca3af;
+        }
+
+        .project-buttons {
+            display: flex;
+            gap: 0.75rem;
+            margin-top: auto;
+        }
+
+        .btn-sm {
+            padding: 0.5rem 1rem;
+            font-size: 0.875rem;
+            border-radius: 0.375rem;
+        }
+
+        /* Contact Section */
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        input,
+        textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid var(--border-light);
+            border-radius: 0.375rem;
+            background-color: var(--card-light);
+            color: var(--text-light);
+            font-family: inherit;
+            font-size: 1rem;
+        }
+
+        body.dark input,
+        body.dark textarea {
+            border-color: var(--border-dark);
+            background-color: var(--card-dark);
+            color: var(--text-dark);
+        }
+
+        textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #1f2937;
+            color: white;
+            padding: 3rem 1rem;
+        }
+
+        body.dark footer {
+            background-color: #030712;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        @media (min-width: 768px) {
+            .footer-content {
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+            }
+        }
+
+        .footer-info h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-info p {
+            color: #9ca3af;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .social-link {
+            color: white;
+            font-size: 1.25rem;
+            transition: color 0.2s;
+            text-decoration: none;
+        }
+
+        .social-link:hover {
+            color: var(--primary-light);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            margin-top: 2rem;
+            border-top: 1px solid #374151;
+            color: #9ca3af;
+            font-size: 0.875rem;
+        }
+
+        body.dark .footer-bottom {
+            border-top-color: #4b5563;
+        }
+
+        /* Theme Toggle */
+        .theme-toggle {
+            background: none;
+            border: none;
+            color: var(--text-light);
+            font-size: 1.25rem;
+            cursor: pointer;
+            padding: 0.5rem;
+            border-radius: 50%;
+            transition: background-color 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        body.dark .theme-toggle {
+            color: var(--text-dark);
+        }
+
+        .theme-toggle:hover {
+            background-color: rgba(0, 0, 0, 0.05);
+        }
+
+        body.dark .theme-toggle:hover {
+            background-color: rgba(255, 255, 255, 0.05);
+        }
+
+        .mobile-theme-toggle {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0.5rem 0;
+        }
+
+        .toggle-switch {
+            position: relative;
+            display: inline-block;
+            width: 44px;
+            height: 24px;
+        }
+
+        .toggle-switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            transition: .4s;
+            border-radius: 24px;
+        }
+
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 16px;
+            width: 16px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            transition: .4s;
+            border-radius: 50%;
+        }
+
+        input:checked + .slider {
+            background-color: var(--primary-light);
+        }
+
+        input:checked + .slider:before {
+            transform: translateX(20px);
+        }
+
+        /* Status Badges */
+        .status-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            padding: 0.25rem 0.5rem;
+            border-radius: 0.25rem;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            z-index: 10;
+        }
+        
+        .in-progress {
+            background-color: #3b82f6;
+            color: white;
+        }
+        
+        .project-image-container {
+            position: relative;
+        }
+        
+        .in-progress-btn {
+            position: relative;
+        }
+        
+        .in-progress-btn:hover::after {
+            content: 'In Progress...';
+            position: absolute;
+            bottom: -25px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: #747406;
+            padding: 0.25rem 0.5rem;
+            border-radius: 0.25rem;
+            font-size: 0.80rem;
+            white-space: nowrap;
+            font-style: italic;
+        }
+
+        /* Graphics Design Section Styles */
+        .design-section {
+            background-color: var(--bg-light);
+            padding: 4rem 1rem;
+        }
+
+        body.dark .design-section {
+            background-color: var(--bg-dark);
+        }
+
+        @media (min-width: 768px) {
+            .design-section {
+                padding: 5rem 1.5rem;
+            }
+        }
+
+        .design-grid {
+            display: grid;
+            grid-template-columns: repeat(1, 1fr);
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        @media (min-width: 768px) {
+            .design-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 2rem;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .design-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .design-category {
+            background-color: var(--card-light);
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        body.dark .design-category {
+            background-color: var(--card-dark);
+        }
+
+        .design-category-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--primary-light);
+            text-align: center;
+        }
+
+        /* Slideshow Styles */
+        .slideshow-container {
+            position: relative;
+            max-width: 100%;
+            margin: 0 auto;
+        }
+
+        .slideshow {
+            display: flex;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            scroll-behavior: smooth;
+            -webkit-overflow-scrolling: touch;
+            border-radius: 0.5rem;
+            background-color: var(--card-light);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        body.dark .slideshow {
+            background-color: var(--card-dark);
+        }
+
+        .slide {
+            flex: 0 0 100%;
+            scroll-snap-align: start;
+            position: relative;
+            min-height: 200px;
+        }
+
+        .slide img {
+            width: 100%;
+            height: 200px;
+            object-fit: contain;
+            display: block;
+            border-radius: 0.5rem;
+        }
+
+        .slide-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 0.5rem;
+            text-align: center;
+            font-size: 0.875rem;
+            border-bottom-left-radius: 0.5rem;
+            border-bottom-right-radius: 0.5rem;
+        }
+
+        .slideshow-nav {
+            display: flex;
+            justify-content: center;
+            margin-top: 1rem;
+            gap: 0.5rem;
+        }
+
+        .slideshow-nav button {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            border: none;
+            background-color: var(--primary-light);
+            opacity: 0.5;
+            cursor: pointer;
+            transition: opacity 0.3s;
+        }
+
+        .slideshow-nav button.active {
+            opacity: 1;
+        }
+
+        .slideshow-nav button:hover {
+            opacity: 0.8;
+        }
+
+        /* Navigation arrows */
+        .slideshow-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 32px;
+            height: 32px;
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            font-size: 1rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .slideshow-container:hover .slideshow-arrow {
+            opacity: 1;
+        }
+
+        .slideshow-arrow.prev {
+            left: 5px;
+        }
+
+        .slideshow-arrow.next {
+            right: 5px;
+        }
+
+        /* CV Section Styles */
+        .cv-content {
+            background-color: var(--card-light);
+            padding: 1.5rem;
+            border-radius: 0.75rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        body.dark .cv-content {
+            background-color: var(--card-dark);
+        }
+
+        @media (min-width: 768px) {
+            .cv-content {
+                padding: 2rem;
+            }
+        }
+
+        .cv-section {
+            margin-bottom: 2rem;
+        }
+
+        .cv-section h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary-light);
+            border-bottom: 2px solid var(--primary-light);
+            padding-bottom: 0.5rem;
+        }
+
+        .cv-entry {
+            margin-bottom: 1.5rem;
+        }
+
+        .cv-entry h4 {
+            font-size: 1.1rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .cv-entry p em {
+            color: #6b7280;
+            font-size: 0.9rem;
+        }
+
+        body.dark .cv-entry p em {
+            color: #9ca3af;
+        }
+
+        .cv-entry ul {
+            margin-top: 0.5rem;
+            padding-left: 1.5rem;
+        }
+
+        .cv-entry ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .cv-download {
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        .cv-download .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .animate-fade-in {
+            animation: fadeIn 0.6s ease-out forwards;
+        }
+
+        .section-hidden {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        /* Hidden utility class */
+        .hidden {
+            display: none !important;
+        }
+
+        /* Utility classes */
+        .bg-gray-100 {
+            background-color: #f3f4f6;
+        }
+
+        body.dark .bg-gray-100 {
+            background-color: #1f2937;
+        }
+    </style>
+    <style>
+.mobile-notification {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  max-width: 400px;
+  background-color: var(--card-light);
+  color: var(--text-light);
+  padding: 16px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  border: 1px solid var(--border-light);
+  z-index: 1000;
+  animation: slideUp 0.3s ease-out;
+}
+
+body.dark .mobile-notification {
+  background-color: var(--card-dark);
+  color: var(--text-dark);
+  border-color: var(--border-dark);
+}
+
+.notification-content {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.notification-content p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.notification-actions {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+}
+
+.btn-notification {
+  padding: 6px 12px;
+  border-radius: 4px;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  border: none;
+  transition: all 0.2s;
+}
+
+.btn-yes {
+  background-color: var(--primary-light);
+  color: white;
+}
+
+.btn-yes:hover {
+  background-color: var(--primary-dark);
+}
+
+.btn-no {
+  background-color: transparent;
+  color: var(--text-light);
+  border: 1px solid var(--border-light);
+}
+
+body.dark .btn-no {
+  color: var(--text-dark);
+  border-color: var(--border-dark);
+}
+
+.btn-no:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+body.dark .btn-no:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+}
+
+@media (min-width: 769px) {
+  .mobile-notification {
+    display: none !important;
+  }
+}
+</style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="#" class="logo">Suraj Salihu</a>
+            <div class="nav-links">
+                <a href="#home" class="nav-link">Home</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#skills" class="nav-link">Skills</a>
+                <a href="#projects" class="nav-link">Projects</a>
+                <a href="#design" class="nav-link">Design</a>
+                <a href="#cv" class="nav-link">CV</a>
+                <a href="#contact" class="nav-link">Contact</a>
+                <button class="theme-toggle" aria-label="Toggle dark mode">
+                    <span class="light-icon">☀️</span>
+                    <span class="dark-icon hidden">🌙</span>
+                </button>
+            </div>
+            <button class="mobile-menu-button" aria-label="Toggle menu">
+                ☰
+            </button>
+        </div>
+        <div class="mobile-menu">
+            <div class="mobile-menu-links">
+                <a href="#home" class="nav-link">Home</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#skills" class="nav-link">Skills</a>
+                <a href="#projects" class="nav-link">Projects</a>
+                <a href="#design" class="nav-link">Design</a>
+                <a href="#cv" class="nav-link">CV</a>
+                <a href="#contact" class="nav-link">Contact</a>
+                <div class="mobile-theme-toggle">
+                    <span>Dark Mode</span>
+                    <label class="toggle-switch">
+                        <input type="checkbox" id="mobile-theme-toggle">
+                        <span class="slider"></span>
+                    </label>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Suraj Salihu</h1>
+            <h2>Full-Stack Developer | Graphics Designer</h2>
+            <div class="hero-buttons">
+                <a href="#projects" class="btn btn-primary">View My Work</a>
+                <a href="#contact" class="btn btn-secondary">Contact Me</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section-hidden">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-content">
+                <div class="profile-img"></div>
+                <div class="about-text">
+                    <p>
+                        Hello! I'm Suraj, a full-stack developer with expertise in both frontend and backend technologies.
+                        I specialize in building scalable web applications with robust APIs and efficient databases.
+                        With 5 years of experience across the stack, I bridge the gap between beautiful interfaces
+                        and powerful server-side functionality.
+                    </p>
+                    <p>
+                        My backend expertise includes designing RESTful APIs, optimizing database queries,
+                        implementing authentication systems, and deploying cloud infrastructure. I'm proficient
+                        in Node.js, Python, and Java backends, with experience in both SQL and NoSQL databases.
+                    </p>
+                    <div class="badges">
+                        <span class="badge">Full-Stack Development</span>
+                        <span class="badge backend-badge">Backend Specialist</span>
+                        <span class="badge">Cloud Architecture</span>
+                        <span class="badge">API Design</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="section-hidden bg-gray-100">
+        <div class="container">
+            <h2 class="section-title">Skills & Tools</h2>
+            <div class="skills-grid" id="skills-container">
+                <!-- Skills will be added by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="section-hidden">
+        <div class="container">
+            <h2 class="section-title">My Projects</h2>
+            <div class="projects-grid" id="projects-container">
+                <!-- Projects will be added by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Graphics Design Works Section -->
+    <section id="design" class="section-hidden design-section">
+        <div class="container">
+            <h2 class="section-title">Graphic Design Works</h2>
+            <div class="design-grid">
+                <!-- Birthday Designs -->
+                <div class="design-category">
+                    <h3 class="design-category-title">Birthday Designs</h3>
+                    <div class="slideshow-container">
+                        <div class="slideshow" id="birthday-slideshow">
+                            <!-- Slides will be added by JavaScript -->
+                        </div>
+                        <button class="slideshow-arrow prev" onclick="moveSlide('birthday', -1)">❮</button>
+                        <button class="slideshow-arrow next" onclick="moveSlide('birthday', 1)">❯</button>
+                    </div>
+                    <div class="slideshow-nav" id="birthday-nav">
+                        <!-- Navigation dots will be added by JavaScript -->
+                    </div>
+                </div>
+                
+                <!-- Advert Designs -->
+                <div class="design-category">
+                    <h3 class="design-category-title">Advert Designs</h3>
+                    <div class="slideshow-container">
+                        <div class="slideshow" id="advert-slideshow">
+                            <!-- Slides will be added by JavaScript -->
+                        </div>
+                        <button class="slideshow-arrow prev" onclick="moveSlide('advert', -1)">❮</button>
+                        <button class="slideshow-arrow next" onclick="moveSlide('advert', 1)">❯</button>
+                    </div>
+                    <div class="slideshow-nav" id="advert-nav">
+                        <!-- Navigation dots will be added by JavaScript -->
+                    </div>
+                </div>
+                
+                <!-- Song Covers -->
+                <div class="design-category">
+                    <h3 class="design-category-title">Song Covers</h3>
+                    <div class="slideshow-container">
+                        <div class="slideshow" id="song-slideshow">
+                            <!-- Slides will be added by JavaScript -->
+                        </div>
+                        <button class="slideshow-arrow prev" onclick="moveSlide('song', -1)">❮</button>
+                        <button class="slideshow-arrow next" onclick="moveSlide('song', 1)">❯</button>
+                    </div>
+                    <div class="slideshow-nav" id="song-nav">
+                        <!-- Navigation dots will be added by JavaScript -->
+                    </div>
+                </div>
+                
+                <!-- Invitation Designs -->
+                <div class="design-category">
+                    <h3 class="design-category-title">Invitation Designs</h3>
+                    <div class="slideshow-container">
+                        <div class="slideshow" id="invitation-slideshow">
+                            <!-- Slides will be added by JavaScript -->
+                        </div>
+                        <button class="slideshow-arrow prev" onclick="moveSlide('invitation', -1)">❮</button>
+                        <button class="slideshow-arrow next" onclick="moveSlide('invitation', 1)">❯</button>
+                    </div>
+                    <div class="slideshow-nav" id="invitation-nav">
+                        <!-- Navigation dots will be added by JavaScript -->
+                    </div>
+                </div>
+                
+                <!-- Logo Designs -->
+                <div class="design-category">
+                    <h3 class="design-category-title">Logo Designs</h3>
+                    <div class="slideshow-container">
+                        <div class="slideshow" id="logo-slideshow">
+                            <!-- Slides will be added by JavaScript -->
+                        </div>
+                        <button class="slideshow-arrow prev" onclick="moveSlide('logo', -1)">❮</button>
+                        <button class="slideshow-arrow next" onclick="moveSlide('logo', 1)">❯</button>
+                    </div>
+                    <div class="slideshow-nav" id="logo-nav">
+                        <!-- Navigation dots will be added by JavaScript -->
+                    </div>
+                </div>
+                
+                <!-- Other Designs -->
+                <div class="design-category">
+                    <h3 class="design-category-title">Other Designs</h3>
+                    <div class="slideshow-container">
+                        <div class="slideshow" id="other-slideshow">
+                            <!-- Slides will be added by JavaScript -->
+                        </div>
+                        <button class="slideshow-arrow prev" onclick="moveSlide('other', -1)">❮</button>
+                        <button class="slideshow-arrow next" onclick="moveSlide('other', 1)">❯</button>
+                    </div>
+                    <div class="slideshow-nav" id="other-nav">
+                        <!-- Navigation dots will be added by JavaScript -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CV Section -->
+    <section id="cv" class="section-hidden">
+        <div class="container">
+            <h2 class="section-title">Curriculum Vitae</h2>
+            <div class="cv-content">
+
+                <!-- Profile -->
+                <div class="cv-section">
+                    <h3>Profile</h3>
+                    <p>
+                        A passionate and self-taught Full-Stack Developer with a BSc in Mathematics and a Diploma in Web Design and Development. Experienced in building responsive websites, PWAs, and mobile-first applications using HTML, CSS, JavaScript, PHP, and Python. Also skilled in graphic design with creative experience in CorelDRAW, Photoshop, and AI tools. Currently focused on developing practical tech solutions for real-world problems.
+                    </p>
+                </div>
+
+                <!-- Work Experience -->
+                <div class="cv-section">
+                    <h3>Work Experience</h3>
+
+                    <div class="cv-entry">
+                        <h4>Freelance Full Stack Developer</h4>
+                        <p><em>Remote — 2020 – Present</em></p>
+                        <ul>
+                            <li>Worked with clients worldwide on web and mobile development projects.</li>
+                            <li>Built responsive websites, Progressive Web Apps, and backend systems using HTML, CSS, JavaScript, PHP, and Python.</li>
+                            <li>Delivered clean UI/UX designs and ensured cross-device compatibility.</li>
+                            <li>Projects range from e-commerce platforms to custom business tools.</li>
+                        </ul>
+                    </div>
+
+                    <div class="cv-entry">
+                        <h4>Freelance Graphic Designer</h4>
+                        <p><em>Remote — 2018 – Present</em></p>
+                        <ul>
+                            <li>Designed logos, flyers, social media posts, banners, and brand assets for clients across different industries.</li>
+                            <li>Worked with tools like CorelDRAW, Photoshop, and AI-powered design platforms to deliver high-quality, visually appealing content.</li>
+                            <li>Successfully completed projects for individuals, businesses, and organizations worldwide with a focus on clean design, creativity, and brand alignment.</li>
+                        </ul>
+                    </div>
+
+                    <div class="cv-entry">
+                        <h4>SOVEX Technologies</h4>
+                        <p><em>Remote — 2023 – Present</em></p>
+                        <ul>
+                            <li>Established SOVEX to deliver creative and technical solutions in web development, app building, and AI-based design.</li>
+                            <li>Currently building personal and client-driven tools, websites, and mobile-ready interfaces under this brand.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Education -->
+                <div class="cv-section">
+                    <h3>Education</h3>
+
+                    <div class="cv-entry">
+                        <h4>Website Design and Development</h4>
+                        <p><em>Bright Information Technology Academy — 2021 – 2024</em></p>
+                        <p><strong>Grade:</strong> Upper Credit</p>
+                    </div>
+
+                    <div class="cv-entry">
+                        <h4>Bachelor of Science in Mathematics</h4>
+                        <p><em>Sa'adu Zungur University, Gadau — 2020 – 2025</em></p>
+                        <p><strong>GPA:</strong> 2.38</p>
+                    </div>
+                </div>
+
+                <!-- Skills -->
+                <div class="cv-section">
+                    <h3>Skills</h3>
+                    <ul>
+                        <li>Frontend: HTML, CSS, JavaScript, Tailwind CSS</li>
+                        <li>Backend: PHP, MySQL, API Integration</li>
+                        <li>Mobile App: PWA, Kivy (Python)</li>
+                        <li>AI & Machine Learning (Python)</li>
+                        <li>Tools: GitHub, VS Code, Git, Figma, Canva</li>
+                        <li>Graphic Design: CorelDRAW, Photoshop, AI-based tools</li>
+                    </ul>
+                </div>
+
+                <!-- Languages -->
+                <div class="cv-section">
+                    <h3>Languages</h3>
+                    <ul>
+                        <li>English — Fluent</li>
+                        <li>Hausa — Native</li>
+                        <li>Arabic — Intermediate</li>
+                    </ul>
+                </div>
+
+                <!-- Reference -->
+                <div class="cv-section">
+                    <h3>Reference</h3>
+                    <p><strong>Name:</strong> Aminu Babayo Shehu</p>
+                    <p><strong>Title:</strong> KDN / CEO</p>
+                    <p><strong>Phone:</strong> +234 907 474 8664</p>
+                    <p><strong>Email:</strong> absheikh@gmail.com</p>
+                </div>
+
+                <!-- Contact Info -->
+                <div class="cv-section">
+                    <h3>Contact Information</h3>
+                    <p><strong>Name:</strong> Suraj Salihu</p>
+                    <p><strong>Phone:</strong> +234 903 130 0454</p>
+                    <p><strong>Email:</strong> soorajsalihu@gmail.com</p>
+                    <p><strong>Location:</strong> No. 16 Alkali Musa Street, Zawiyya Azare</p>
+                    <p><strong>GitHub:</strong> <a href="https://github.com/Suraj-Salihu" target="_blank">github.com/Suraj-Salihu</a></p>
+                </div>
+
+                <!-- Download Button -->
+                <div class="cv-download">
+                    <a href="cv/Suraj-Salihu-CV.pdf" download="Suraj-Salihu-CV.pdf" class="btn btn-primary">
+                        Download Full CV (PDF)
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->  
+    <section id="contact" class="section-hidden bg-gray-100">  
+        <div class="container">  
+            <h2 class="section-title">Get In Touch</h2>  
+            <form class="contact-form" action="send.php" method="POST">  
+                <div class="form-group">  
+                    <label for="name">Name</label>  
+                    <input type="text" id="name" name="name" placeholder="Your name" required>  
+                </div>  
+                <div class="form-group">  
+                    <label for="email">Email</label>  
+                    <input type="email" id="email" name="email" placeholder="your.email@example.com" required>  
+                </div>  
+                <div class="form-group">  
+                    <label for="message">Message</label>  
+                    <textarea id="message" name="message" placeholder="Your message here..." required></textarea>  
+                </div>  
+                <button type="submit" class="btn btn-primary">Send Message</button>  
+            </form>  
+        </div>  
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-info">
+                <h3>Suraj Salihu</h3>
+                <p>Creating digital experiences that matter.</p>
+            </div>
+            <div class="social-links">
+                <a href="https://github.com/Suraj-Salihu" class="social-link">GitHub</a>
+                <a href="https://www.linkedin.com/in/suraj-salihu-03813b359?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" class="social-link">LinkedIn</a>
+                <a href="https://www.instagram.com/suraj_salihu1?igsh=MXF2b3Fnd3kxNTcxbQ==" class="social-link">Instagram</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; <span id="year"></span> Suraj Salihu. All rights reserved.</p>
+        </div>
+    </footer>
+<div id="mobile-notification" class="mobile-notification">
+  <div class="notification-content">
+    <p>For the full experience with all features, would you like to switch to desktop view?</p>
+    <div class="notification-actions">
+      <button id="switch-to-desktop" class="btn-notification btn-yes">Yes</button>
+      <button id="dismiss-notification" class="btn-notification btn-no">No</button>
+    </div>
+  </div>
+</div>
+    <script>
+        // Data for skills and projects
+        const skillsData = [
+            // Frontend skills
+            { name: 'HTML', icon: '🟧', color: '#e34c26' },
+            { name: 'CSS', icon: '🟦', color: '#264de4' },
+            { name: 'JavaScript', icon: '🟨', color: '#f0db4f' },
+            { name: 'React', icon: '⚛️', color: '#61dbfb' },
+            
+            // Backend skills
+            { name: 'Node.js', icon: '🟢', color: '#3c873a' },
+            { name: 'Python', icon: '🐍', color: '#4B8BBE' },
+            { name: 'Java', icon: '☕', color: '#5382a1' },
+            { name: 'Express', icon: '🚀', color: '#000000' },
+            
+            // Databases
+            { name: 'MongoDB', icon: '🍃', color: '#4DB33D', class: 'database-icon' },
+            { name: 'PostgreSQL', icon: '🐘', color: '#336791', class: 'database-icon' },
+            { name: 'Redis', icon: '🔴', color: '#d82c20', class: 'database-icon' },
+            
+            // DevOps/Cloud
+            { name: 'Docker', icon: '🐳', color: '#2496ed' },
+            { name: 'AWS', icon: '☁️', color: '#FF9900' },
+            { name: 'Serverless', icon: '⚡', color: '#fd5750' },
+            
+            // Other
+            { name: 'REST API', icon: '🔗', color: '#7c3aed', class: 'server-icon' },
+            { name: 'GraphQL', icon: '📊', color: '#e535ab' },
+            { name: 'MySQL', icon: '🐬', color: '#e34c26' },
+            { name: 'Microservices', icon: '🧩', color: '#6b7280' }
+        ];
+
+        const projectsData = [
+            {
+                title: 'JK Clothing - WhatsApp Commerce',
+                description: 'Lightweight e-commerce site for fashion products with 1-click WhatsApp ordering. Auto-generates product details in messages for instant purchases.',
+                tech: 'HTML5, CSS3, JavaScript, WhatsApp API',
+                features: [
+                    'WhatsApp order automation (product/size/color/price)',
+                    'LocalStorage cart persistence',
+                    'Mobile-first responsive design',
+                    'No backend required (static site)'
+                ],
+                demoLink: 'https://jk-fashion.netlify.app/',
+                codeLink: 'https://github.com/Suraj-Salihu/e-commerce-website-jk-closet/tree/main',
+                image: 'images/jk-fashion.jpg'
+            },
+            {
+                title: 'Sovex Task Master',
+                description: 'Progressive Web App for task management with offline capabilities, project organization, and priority-based sorting.',
+                tech: 'HTML5, CSS3, JavaScript, PWA',
+                features: [
+                    'Installable PWA with service worker caching',
+                    'Priority-based task organization (High/Medium/Low)',
+                    'Project categorization with color coding',
+                    'Offline functionality and data persistence',
+                    'Dark/light mode toggle'
+                ],
+                demoLink: 'https://suraj-salihu.github.io/Task-Manager-PWA/',
+                codeLink: 'https://github.com/Suraj-Salihu/Task-Manager-PWA/tree/main',
+                image: 'images/task-Master.png'
+            },
+            {
+                title: 'BL4MELESS Artist Portfolio',
+                description: 'Professional music artist website showcasing discography, streaming links, gallery, and contact information.',
+                tech: 'HTML5, CSS3, JavaScript',
+                features: [
+                    'Interactive music player with seek functionality',
+                    'Multi-platform streaming links (12+ services)',
+                    'Responsive gallery with hover effects',
+                    'Embedded YouTube video showcase',
+                    'Contact form with FormSubmit integration'
+                ],
+                demoLink: 'https://bl4meless.netlify.app',
+                codeLink: 'https://github.com/Suraj-Salihu/singer-website/blob/main/index.html',
+                image: 'images/bl4meless-screenshot.jpg'
+            },
+            {
+                title: 'The Movement (Tafiyar Matasa)',
+                description: 'Official website for a Nigerian youth empowerment movement featuring leadership profiles, state chapters, news, and event management.',
+                tech: 'HTML5, CSS3, JavaScript, EmailJS',
+                demoLink: '#',
+                codeLink: '#',
+                image: 'images/TMLogo.png'
+            },
+            {
+                title: 'VTU Website',
+                description: 'Mobile-first virtual top-up platform for purchasing airtime, data, paying bills, and managing digital transactions.',
+                tech: 'HTML5, CSS3, JavaScript, FontAwesome',
+                demoLink: '#',
+                codeLink: '#',
+                image: 'images/vtu-screenshot.jpg'
+            },
+            {
+                title: 'API Service',
+                description: 'High-performance REST API for mobile applications with caching and rate limiting.',
+                tech: 'Node.js, Redis, MongoDB, Docker',
+                backend: 'Implemented JWT authentication, Redis caching layer, and comprehensive API documentation',
+                demoLink: '#',
+                codeLink: '#',
+                status: 'in-progress', // Added status for API Service
+                image: 'images/carbon.png'
+            }
+        ];
+
+        // Design Works Data (updated for 6 categories)
+        const designWorks = {
+            birthday: [
+                { src: 'images/designs/birthday/birthday1.jpg', caption: 'Elegant Birthday Invitation' },
+                { src: 'images/designs/birthday/birthday2.jpg', caption: 'Fun Birthday Poster' },
+                { src: 'images/designs/birthday/birthday3.jpg', caption: 'Minimalist Birthday Card' },
+                { src: 'images/designs/birthday/birthday4.jpg', caption: 'Colorful Birthday Banner' },
+                { src: 'images/designs/birthday/birthday5.jpg', caption: 'Themed Birthday Design' },
+                { src: 'images/designs/birthday/birthday6.jpg', caption: 'Custom Birthday Illustration' }
+            ],
+            advert: [
+                { src: 'images/designs/advert/advert1.jpg', caption: 'Product Advertisement' },
+                { src: 'images/designs/advert/advert2.jpg', caption: 'Service Promotion' },
+                { src: 'images/designs/advert/advert3.jpg', caption: 'Social Media Ad' },
+                { src: 'images/designs/advert/advert4.jpg', caption: 'Event Promotion' },
+                { src: 'images/designs/advert/advert5.jpg', caption: 'Digital Marketing Banner' },
+                { src: 'images/designs/advert/advert6.jpg', caption: 'Creative Campaign' }
+            ],
+            song: [
+                { src: 'images/designs/song/song1.jpg', caption: 'Album Cover Art' },
+                { src: 'images/designs/song/song2.jpg', caption: 'Single Release Cover' },
+                { src: 'images/designs/song/song3.jpg', caption: 'Music Poster Design' },
+                { src: 'images/designs/song/song4.jpg', caption: 'EP Cover Concept' },
+                { src: 'images/designs/song/song5.jpg', caption: 'Lyric Visual Art' },
+                { src: 'images/designs/song/song6.jpg', caption: 'Artist Branding' }
+            ],
+            invitation: [
+                { src: 'images/designs/iv/invitation1.jpg', caption: 'Wedding Invitation' },
+                { src: 'images/designs/iv/invitation2.jpg', caption: 'Event Invitation' },
+                { src: 'images/designs/iv/invitation3.jpg', caption: 'Corporate Invite' },
+                { src: 'images/designs/iv/invitation4.jpg', caption: 'Digital Invitation' },
+                { src: 'images/designs/iv/invitation5.jpg', caption: 'Themed Invite' },
+                { src: 'images/designs/iv/invitation6.jpg', caption: 'Minimalist Design' }
+            ],
+            logo: [
+                { src: 'images/designs/logos/logo1.jpg', caption: 'Modern Business Logo' },
+                { src: 'images/designs/logos/logo2.jpg', caption: 'Creative Brand Identity' },
+                { src: 'images/designs/logos/logo3.jpg', caption: 'Minimalist Logo Design' },
+                { src: 'images/designs/logos/logo4.jpg', caption: 'Abstract Logo Concept' },
+                { src: 'images/designs/logos/logo5.jpg', caption: 'Typography Logo' },
+                { src: 'images/designs/logos/logo6.jpg', caption: 'Iconic Brand Mark' }
+            ],
+            other: [
+                { src: 'images/designs/other/other1.jpg', caption: 'Business Card Design' },
+                { src: 'images/designs/other/other2.jpg', caption: 'Social Media Post' },
+                { src: 'images/designs/other/other3.jpg', caption: 'Brochure Design' },
+                { src: 'images/designs/other/other4.jpg', caption: 'Flyer Design' },
+                { src: 'images/designs/other/other5.jpg', caption: 'Poster Design' },
+                { src: 'images/designs/other/other6.jpg', caption: 'Digital Artwork' }
+            ]
+        };
+
+        // Initialize the page
+        document.addEventListener('DOMContentLoaded', function() {
+            // Set current year in footer
+            document.getElementById('year').textContent = new Date().getFullYear();
+
+            // Load skills
+            const skillsContainer = document.getElementById('skills-container');
+            skillsData.forEach(skill => {
+                const skillElement = document.createElement('div');
+                skillElement.className = 'skill-card';
+                skillElement.innerHTML = `
+                    <span class="skill-icon ${skill.class || ''}" style="color: ${skill.color}">${skill.icon}</span>
+                    <span>${skill.name}</span>
+                `;
+                skillsContainer.appendChild(skillElement);
+            });
+
+            // Load projects
+            const projectsContainer = document.getElementById('projects-container');
+            projectsData.forEach((project, index) => {
+                const projectElement = document.createElement('div');
+                projectElement.className = 'project-card';
+                
+                let featuresHTML = '';
+                if (project.features) {
+                    featuresHTML = `<div class="project-features"><strong>Features:</strong><ul>${
+                        project.features.map(feature => `<li>${feature}</li>`).join('')
+                    }</ul></div>`;
+                }
+                
+                let backendHTML = '';
+                if (project.backend) {
+                    backendHTML = `<div class="backend-details"><strong>Backend Highlights:</strong> ${project.backend}</div>`;
+                }
+
+                // Add status badge if project is in progress
+                let statusBadge = '';
+                if (project.status === 'in-progress') {
+                    statusBadge = '<span class="status-badge in-progress">In Progress</span>';
+                }
+
+                projectElement.innerHTML = `
+                    <div class="project-image-container">
+                        <img src="${project.image}" alt="${project.title}" class="project-image">
+                        ${statusBadge}
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">${project.title}</h3>
+                        <p class="project-description">${project.description}</p>
+                        <p class="project-tech">${project.tech}</p>
+                        ${featuresHTML}
+                        ${backendHTML}
+                        <div class="project-buttons">
+                            <a href="${project.demoLink}" class="btn btn-primary btn-sm ${project.status === 'in-progress' ? 'in-progress-btn' : ''}">
+                                ${project.status === 'in-progress' ? 'View Demo' : 'View Demo'}
+                            </a>
+                            <a href="${project.codeLink}" class="btn btn-secondary btn-sm ${project.status === 'in-progress' ? 'in-progress-btn' : ''}">
+                                ${project.status === 'in-progress' ? 'View Code' : 'View Code'}
+                            </a>
+                        </div>
+                    </div>
+                `;
+                
+                projectsContainer.appendChild(projectElement);
+
+                // Add click handlers for in-progress project buttons
+                if (project.status === 'in-progress') {
+                    const buttons = projectElement.querySelectorAll('.in-progress-btn');
+                    buttons.forEach(button => {
+                        button.addEventListener('click', function(e) {
+                            e.preventDefault();
+                            alert('🚧 This project is currently under development. Check back soon! 🚧');
+                        });
+                    });
+                }
+            });
+
+            // Dark mode toggle
+            const themeToggle = document.querySelector('.theme-toggle');
+            const mobileThemeToggle = document.getElementById('mobile-theme-toggle');
+            
+            function toggleDarkMode() {
+                document.body.classList.toggle('dark');
+                localStorage.setItem('theme', document.body.classList.contains('dark') ? 'dark' : 'light');
+                
+                // Toggle icon visibility
+                document.querySelector('.light-icon').classList.toggle('hidden');
+                document.querySelector('.dark-icon').classList.toggle('hidden');
+            }
+            
+            if (themeToggle) {
+                themeToggle.addEventListener('click', toggleDarkMode);
+            }
+            
+            if (mobileThemeToggle) {
+                mobileThemeToggle.addEventListener('change', toggleDarkMode);
+            }
+
+            // Check for saved theme preference
+            if (localStorage.getItem('theme') === 'dark' || (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                document.body.classList.add('dark');
+                document.querySelector('.light-icon').classList.add('hidden');
+                document.querySelector('.dark-icon').classList.remove('hidden');
+                if (mobileThemeToggle) mobileThemeToggle.checked = true;
+            } else {
+                document.body.classList.remove('dark');
+                document.querySelector('.light-icon').classList.remove('hidden');
+                document.querySelector('.dark-icon').classList.add('hidden');
+                if (mobileThemeToggle) mobileThemeToggle.checked = false;
+            }
+
+            // Mobile menu toggle
+            const mobileMenuButton = document.querySelector('.mobile-menu-button');
+            const mobileMenu = document.querySelector('.mobile-menu');
+            
+            if (mobileMenuButton && mobileMenu) {
+                mobileMenuButton.addEventListener('click', function() {
+                    mobileMenu.classList.toggle('active');
+                });
+            }
+
+            // Close mobile menu when clicking a link
+            document.querySelectorAll('.mobile-menu .nav-link').forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.remove('active');
+                });
+            });
+
+            // Scroll animations
+            const observerOptions = {
+                threshold: 0.1
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.remove('section-hidden');
+                        entry.target.classList.add('animate-fade-in');
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.section-hidden').forEach(section => {
+                observer.observe(section);
+            });
+
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 60,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+
+            // Initialize design works slideshows
+            initSlideshows();
+        });
+
+        // Initialize slideshows
+        function initSlideshows() {
+            // Initialize each slideshow for all 6 categories
+            initSlideshow('birthday', designWorks.birthday);
+            initSlideshow('advert', designWorks.advert);
+            initSlideshow('song', designWorks.song);
+            initSlideshow('invitation', designWorks.invitation);
+            initSlideshow('logo', designWorks.logo);
+            initSlideshow('other', designWorks.other);
+        }
+
+        function initSlideshow(id, slides) {
+            const slideshow = document.getElementById(`${id}-slideshow`);
+            const nav = document.getElementById(`${id}-nav`);
+            
+            // Clear existing content
+            slideshow.innerHTML = '';
+            nav.innerHTML = '';
+            
+            // Add slides
+            slides.forEach((slide, index) => {
+                const slideElement = document.createElement('div');
+                slideElement.className = 'slide';
+                slideElement.innerHTML = `
+                    <img src="${slide.src}" alt="${slide.caption}">
+                    <div class="slide-caption">${slide.caption}</div>
+                `;
+                slideshow.appendChild(slideElement);
+                
+                // Add navigation dot
+                const dot = document.createElement('button');
+                dot.addEventListener('click', () => {
+                    goToSlide(id, index);
+                });
+                if (index === 0) dot.classList.add('active');
+                nav.appendChild(dot);
+            });
+            
+            // Set current slide index
+            slideshow.dataset.currentSlide = 0;
+        }
+
+        // Navigate slides
+        function moveSlide(id, direction) {
+            const slideshow = document.getElementById(`${id}-slideshow`);
+            const slides = slideshow.querySelectorAll('.slide');
+            let currentSlide = parseInt(slideshow.dataset.currentSlide);
+            
+            currentSlide += direction;
+            
+            if (currentSlide >= slides.length) {
+                currentSlide = 0;
+            } else if (currentSlide < 0) {
+                currentSlide = slides.length - 1;
+            }
+            
+            goToSlide(id, currentSlide);
+        }
+
+        function goToSlide(id, slideIndex) {
+            const slideshow = document.getElementById(`${id}-slideshow`);
+            const slides = slideshow.querySelectorAll('.slide');
+            const nav = document.getElementById(`${id}-nav`);
+            const dots = nav.querySelectorAll('button');
+            
+            // Update current slide
+            slideshow.dataset.currentSlide = slideIndex;
+            
+            // Scroll to slide
+            slides[slideIndex].scrollIntoView({
+                behavior: 'smooth',
+                block: 'nearest',
+                inline: 'start'
+            });
+            
+            // Update active dot
+            dots.forEach((dot, index) => {
+                dot.classList.toggle('active', index === slideIndex);
+            });
+        }
+    </script>
+    <script>
+document.addEventListener('DOMContentLoaded', function() {
+  const notification = document.getElementById('mobile-notification');
+  const switchBtn = document.getElementById('switch-to-desktop');
+  const dismissBtn = document.getElementById('dismiss-notification');
+  
+  // Only show on mobile and if not previously dismissed
+  if (localStorage.getItem('desktopPromptDismissed') !== 'true' && window.innerWidth <= 768) {
+    notification.style.display = 'block';
+    
+    // Switch to desktop view (this will vary based on your implementation)
+    switchBtn.addEventListener('click', function() {
+      // Option 1: Redirect to a desktop version URL if you have one
+      // window.location.href = '/desktop-version';
+      
+      // Option 2: Trigger desktop view by changing viewport (may not work on all devices)
+      const metaViewport = document.querySelector('meta[name="viewport"]');
+      if (metaViewport) {
+        metaViewport.content = 'width=1200';
+      }
+      
+      // Option 3: Just hide the notification (if you can't actually force desktop view)
+      notification.style.display = 'none';
+      localStorage.setItem('desktopPromptDismissed', 'true');
+      
+      alert('Desktop view activated. For best results, try on an actual desktop computer.');
+    });
+    
+    // Dismiss notification
+    dismissBtn.addEventListener('click', function() {
+      notification.style.display = 'none';
+      localStorage.setItem('desktopPromptDismissed', 'true');
+    });
+    
+    // Auto-dismiss after 15 seconds
+    setTimeout(function() {
+      notification.style.display = 'none';
+    }, 15000);
+  }
+});
+</script>
+</body>
+</html>
