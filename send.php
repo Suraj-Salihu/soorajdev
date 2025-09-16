@@ -14,8 +14,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $mail->isSMTP();
         $mail->Host = 'smtp.gmail.com';
         $mail->SMTPAuth = true;
-        $mail->Username = 'sovex.technologies@gmail.com'; // sender email
-        $mail->Password = 'dvdbdphmxhwwusjx'; // ✅ new app password (no spaces)
+        $mail->Username = 'sooraj.portfolio@gmail.com'; // sender email
+        $mail->Password = 'uoyz sbmi eomk bdvg'; // ✅ new app password (no spaces)
         $mail->SMTPSecure = 'tls';
         $mail->Port = 587;
 
@@ -29,11 +29,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         ];
 
         // ✅ Sender info
-        $mail->setFrom('sovex.technologies@gmail.com', 'SOVEX Portfolio');
+        $mail->setFrom('sooraj.portfolio@gmail.com', 'SOVEX Portfolio');
         $mail->addReplyTo($_POST["email"], $_POST["name"]); // sender info
 
         // ✅ Recipient
-        $mail->addAddress('sovex.technologies@gmail.com');
+        $mail->addAddress('soorajsalihu@gmail.com');
 
         // ✅ Email content
         $mail->isHTML(true);
